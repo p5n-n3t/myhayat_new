@@ -10,6 +10,10 @@ import { useTranslation } from "@/lib/i18n";
 import { Menu, X } from "lucide-react";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
 
+const openContactModal = () => {
+  window.dispatchEvent(new CustomEvent("open-contact-modal"));
+};
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -23,7 +27,6 @@ export const Navbar = () => {
     { name: t("nav.pricing"), href: "/pricing" },
     { name: t("nav.chatDemo"), href: "/chat" },
     { name: "Education Hub", href: "/education-hub" },
-    { name: t("nav.contact"), href: "#contact-modal" },
   ];
 
   const isActive = (path: string) => pathname === path;
@@ -52,14 +55,23 @@ export const Navbar = () => {
               className="shrink-0"
               title={link.name}
             >
-              <PixelHoverPill 
-                active={isActive(link.href)} 
+              <PixelHoverPill
+                active={isActive(link.href)}
                 className="font-titan text-[0.78rem] xl:text-[0.9rem]"
               >
                 {link.name}
               </PixelHoverPill>
             </Link>
           ))}
+          <button
+            onClick={openContactModal}
+            className="shrink-0"
+            title={t("nav.contact")}
+          >
+            <PixelHoverPill className="font-titan text-[0.78rem] xl:text-[0.9rem]">
+              {t("nav.contact")}
+            </PixelHoverPill>
+          </button>
         </div>
 
         {/* Actions */}
@@ -117,6 +129,12 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <button
+            onClick={() => { openContactModal(); setIsOpen(false); }}
+            className="text-xl font-titan text-center transition-colors py-1 rounded-full text-myhayat-salmon hover:text-myhayat-pink dark:text-myhayat-pink dark:hover:text-myhayat-yellow"
+          >
+            {t("nav.contact")}
+          </button>
           <div className="h-px bg-myhayat-salmon/20 my-1" />
           <div className="flex items-center justify-center gap-3">
             <button

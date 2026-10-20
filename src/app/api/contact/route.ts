@@ -13,8 +13,8 @@ export async function POST(request: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
-      to: "joemaari@gmail.com",
+      from: "My Hayat <contact@myhayat.app>",
+      to: "eojiraam@gmail.com",
       subject: `[My Hayat] Contact: ${category || "General"} — ${name}`,
       html: `
         <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #1a0a14; color: #f3f3f3; border-radius: 16px; overflow: hidden;">
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     // Send auto-reply to the user
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
+      from: "My Hayat <contact@myhayat.app>",
       to: email,
       subject: "We received your message 💛 — My Hayat",
       html: `

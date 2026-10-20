@@ -5,35 +5,20 @@ import { X, Send } from "lucide-react";
 import { MyHayatCard } from "./MyHayatCard";
 import { MyHayatButton } from "./MyHayatButton";
 import { useTranslation } from "@/lib/i18n";
-import { useRouter } from "next/navigation";
 
 export function ContactModal() {
   const { t } = useTranslation();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formData, setFormData] = useState({ name: "", email: "", category: "General", message: "" });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === "#contact-modal") {
-        setIsOpen(true);
-      } else {
-        setIsOpen(false);
-      }
-    };
-    
-    // Check initial hash
-    handleHashChange();
-    
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener("open-contact-modal", handleOpen);
+    return () => window.removeEventListener("open-contact-modal", handleOpen);
   }, []);
 
   const closeModal = () => {
-    // Remove the hash from the URL without triggering a full reload
-    const newUrl = window.location.pathname + window.location.search;
-    window.history.replaceState(null, "", newUrl);
     setIsOpen(false);
     setStatus("idle");
   };
