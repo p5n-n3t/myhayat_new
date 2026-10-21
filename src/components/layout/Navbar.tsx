@@ -11,7 +11,7 @@ import { Menu, X } from "lucide-react";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
 
 const openContactModal = () => {
-  window.dispatchEvent(new CustomEvent("open-contact-modal"));
+  window.location.hash = "contact-modal";
 };
 
 export const Navbar = () => {
