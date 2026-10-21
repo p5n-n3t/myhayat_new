@@ -58,24 +58,24 @@ export function ContactModal() {
         onClick={closeModal}
       />
       
-      <div className="relative w-full max-w-lg z-10 animate-in fade-in zoom-in-95 duration-200">
-        <MyHayatCard noPattern className="bg-myhayat-offwhite dark:bg-[#1a0a14] border-4 border-myhayat-salmon dark:border-myhayat-pink/50 shadow-2xl p-0 overflow-hidden relative">
+      <div className="relative w-full max-w-lg z-10 animate-in fade-in zoom-in-95 duration-200 max-h-[90dvh] flex flex-col">
+        <MyHayatCard noPattern className="bg-myhayat-offwhite dark:bg-[#1a0a14] border-4 border-myhayat-salmon dark:border-myhayat-pink/50 shadow-2xl p-0 overflow-hidden relative flex flex-col min-h-0">
           {/* Header */}
-          <div className="bg-gradient-to-r from-myhayat-pink to-myhayat-salmon p-6 text-white relative">
+          <div className="bg-gradient-to-r from-myhayat-pink to-myhayat-salmon p-5 text-white relative shrink-0">
             <button 
               onClick={closeModal}
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-white/20 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
-            <h2 className="font-titan text-3xl mb-1 flex items-center gap-2">
+            <h2 className="font-titan text-2xl mb-0.5 flex items-center gap-2">
               {t("contact.title")} 
               <img src="/decor_heart.svg" alt="" className="w-6 h-6 animate-pulse" />
             </h2>
             <p className="opacity-90">{t("contact.subtitle")}</p>
           </div>
 
-          <div className="p-6 md:p-8">
+          <div className="p-5 md:p-6 overflow-y-auto overscroll-contain">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center py-8 text-center space-y-4 animate-in fade-in">
                 <img src="/decor_shoot_star_2.svg" alt="" className="w-16 h-16 animate-float" />
@@ -132,7 +132,7 @@ export function ContactModal() {
                   </label>
                   <textarea
                     required
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl border-2 border-myhayat-salmon/30 dark:border-myhayat-pink/30 bg-white dark:bg-[#251320] focus:border-myhayat-pink focus:outline-none focus:ring-2 focus:ring-myhayat-pink/20 transition-colors resize-none"
