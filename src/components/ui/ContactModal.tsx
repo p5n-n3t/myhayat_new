@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Send, Heart } from "lucide-react";
+import { X, Send } from "lucide-react";
 import { MyHayatButton } from "./MyHayatButton";
 import { useTranslation } from "@/lib/i18n";
 
@@ -60,14 +60,20 @@ export function ContactModal() {
 
         {/* Title row */}
         <div className="flex items-center justify-between px-6 pt-5 pb-3">
-          <div className="flex items-center gap-2">
-            <Heart className="w-5 h-5 text-myhayat-pink fill-myhayat-pink" />
-            <h2 className="font-titan text-xl text-gray-800 dark:text-white">{t("contact.title")}</h2>
+          <div className="flex items-center gap-2 flex-wrap">
+            <img src="/decor_heart.svg" alt="" className="w-5 h-5 shrink-0" />
+            <h2 className="font-titan text-xl leading-none">
+              <span className="text-gray-500 dark:text-gray-400">{t("contact.title")}&nbsp;</span>
+              <span className="bg-gradient-to-r from-myhayat-pink to-myhayat-salmon bg-clip-text text-transparent">
+                {t("contact.titleHighlight")}
+              </span>
+            </h2>
+            <img src="/decor_twinkle_pink.svg" alt="" className="w-4 h-4 shrink-0 opacity-80" />
           </div>
           <button
             onClick={closeModal}
             aria-label="Close"
-            className="p-1.5 rounded-full hover:bg-myhayat-salmon/15 dark:hover:bg-myhayat-pink/15 text-gray-400 hover:text-myhayat-salmon dark:hover:text-myhayat-pink transition-colors"
+            className="p-1.5 rounded-full hover:bg-myhayat-salmon/15 dark:hover:bg-myhayat-pink/15 text-gray-400 hover:text-myhayat-salmon dark:hover:text-myhayat-pink transition-colors shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
