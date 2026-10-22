@@ -1,0 +1,14 @@
+knowledge/
+*.mp3
+*.pdf
+scripts/
+.agents/
+.claude/
+.cursor/
+.kiro/
+.opencode/
+.pi/
+.rules
+.github/
+opencode.json
+GEMINI.md
