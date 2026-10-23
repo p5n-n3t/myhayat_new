@@ -1,7 +1,7 @@
 import type { AccountConfig, ErrorClass, RouterState } from "./types";
 import { classifyError } from "./classify";
 
-const CF_API_BASE = "https://api.cloudflare.com/client/v4/accounts";
+const CF_API_BASE = process.env.CF_API_BASE_URL || "https://api.cloudflare.com/client/v4/accounts";
 const RETRY_DELAY_MS = 500;
 
 const COOLDOWN_MS = {
