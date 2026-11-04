@@ -11,7 +11,8 @@ import { useTranslation } from "@/lib/i18n";
 import { Mic, Brain, MessageCircle, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { SparklesText } from "@/components/ui/sparkles-text";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
 
 export default function EchoesPage() {
   const { t } = useTranslation();
@@ -64,15 +65,7 @@ export default function EchoesPage() {
               {t("echoes.badge")} ✨
             </div>
             <h1 className="text-5xl md:text-7xl font-titan leading-tight">
-              <AnimatedGradientText className="!bg-transparent !p-0 inline">
-                <span className="inline animate-gradient bg-gradient-to-r from-[#F85BAA] via-[#F98181] to-[#F85BAA] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
-                  {t("echoes.title")}
-                </span>
-              </AnimatedGradientText>{" "}
-              <span className="text-myhayat-pink relative inline-block">
-                {t("echoes.titleHighlight")}
-                <img src="/decor_twinkle_pink.svg" alt="" className="absolute -top-6 -right-8 decor-sm animate-twinkle" />
-              </span>
+              <BrandSparkleTitle count={13}>{t("echoes.title")}{" "}{t("echoes.titleHighlight")}</BrandSparkleTitle>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               {t("echoes.desc")}
@@ -188,14 +181,12 @@ export default function EchoesPage() {
           <div className="max-w-3xl mx-auto text-center space-y-4 md:space-y-6">
             <img src="/decor_cloud_3.svg" alt="" className="mx-auto w-24 md:w-32 opacity-25 mb-0" />
             <h2 className="text-3xl md:text-5xl font-titan">
-              <SparklesText sparklesCount={6} className="text-gradient-morph text-[inherit]">Ready to remember?</SparklesText>
+              <BrandSparkleTitle count={8}>Ready to remember?</BrandSparkleTitle>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               Echoes is available in the Premium Plus plan. Join the waitlist to be notified when we launch.
             </p>
-            <Link href="/pricing">
-              <MyHayatButton size="lg" className="mx-auto">{t("pricing.plus.cta")}</MyHayatButton>
-            </Link>
+            <BrandLinkButton href="#waitlist-modal" className="mx-auto">{t("pricing.plus.cta")}</BrandLinkButton>
             <div className="mt-4 flex justify-center">
               <img src="/Illustrations/mom and daughter are going on a trip.svg" alt="A mother and daughter setting out on a journey" className="w-[clamp(15rem,50vw,25rem)] h-auto" />
             </div>

@@ -8,7 +8,7 @@ import { ChevronDown, X } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import { SITE_NAV_ITEMS } from "@/lib/site-navigation";
 import { PixelHoverPill } from "@/components/ui/PixelHoverPill";
-import { MyHayatButton } from "@/components/ui/MyHayatButton";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
 
 const CLOUDS = [
   { asset: "/decor_cloud_1.svg", lane: "sky-cloud--1" },
@@ -89,7 +89,7 @@ export const Navbar = () => {
               <span className={locale === "en" ? "px-2.5 py-1.5 bg-myhayat-pink text-white" : "px-2.5 py-1.5 text-gray-600 dark:text-gray-300"}>EN</span>
               <span className={locale === "ar" ? "px-2.5 py-1.5 bg-myhayat-pink text-white" : "px-2.5 py-1.5 text-gray-600 dark:text-gray-300"}>ع</span>
             </button>
-            <Link href="/#waitlist"><MyHayatButton size="sm" className="text-sm border-2 border-black">{t("nav.joinNow")}</MyHayatButton></Link>
+            <BrandLinkButton href="/#waitlist-modal" size="sm" className="text-sm">{t("nav.joinNow")}</BrandLinkButton>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ export const Navbar = () => {
               <button type="button" onClick={toggleLocale} className="rounded-full px-4 py-2 bg-white/10 border border-myhayat-yellow text-white font-semibold text-sm">
                 {locale === "en" ? "English / عربي" : "عربي / English"}
               </button>
-              <Link href="/#waitlist" onClick={() => setIsOpen(false)} className="rounded-full bg-myhayat-salmon text-[#292c3a] border-2 border-myhayat-yellow px-4 py-2 font-bold text-sm text-center">
+              <Link href="/#waitlist-modal" onClick={() => setIsOpen(false)} className="rounded-full bg-myhayat-salmon text-[#292c3a] border-2 border-myhayat-yellow px-4 py-2 font-bold text-sm text-center">
                 {t("nav.joinNow")}
               </Link>
             </div>

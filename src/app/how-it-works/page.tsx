@@ -8,7 +8,9 @@ import { MyHayatButton } from "@/components/ui/MyHayatButton";
 import { useTranslation } from "@/lib/i18n";
 import Link from "next/link";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
-import { SparklesText } from "@/components/ui/sparkles-text";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import {
   Shield, MessageCircle, Languages, AlertTriangle,
   RefreshCw, ArrowRight, Sparkles, Database, Zap
@@ -20,7 +22,7 @@ export default function HowItWorksPage() {
   const steps = [
     {
       num: "01",
-      icon: <Languages className="w-7 h-7" />,
+      icon: <BrandIcon kind="bloom" size={46} />,
       title: t("howItWorks.step1.title"),
       desc: t("howItWorks.step1.desc"),
       color: "bg-myhayat-pink",
@@ -28,7 +30,7 @@ export default function HowItWorksPage() {
     },
     {
       num: "02",
-      icon: <Shield className="w-7 h-7" />,
+      icon: <BrandIcon kind="eye" size={46} />,
       title: t("howItWorks.step2.title"),
       desc: t("howItWorks.step2.desc"),
       color: "bg-myhayat-teal",
@@ -36,7 +38,7 @@ export default function HowItWorksPage() {
     },
     {
       num: "03",
-      icon: <Database className="w-7 h-7" />,
+      icon: <BrandIcon kind="flower" size={46} />,
       title: t("howItWorks.step3.title"),
       desc: t("howItWorks.step3.desc"),
       color: "bg-myhayat-yellow",
@@ -44,7 +46,7 @@ export default function HowItWorksPage() {
     },
     {
       num: "04",
-      icon: <MessageCircle className="w-7 h-7" />,
+      icon: <BrandIcon kind="heart" size={46} />,
       title: t("howItWorks.step4.title"),
       desc: t("howItWorks.step4.desc"),
       color: "bg-myhayat-salmon",
@@ -75,9 +77,7 @@ export default function HowItWorksPage() {
               <span className="text-sm font-bold text-gray-800 dark:text-gray-200 tracking-wider uppercase">How it works</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-titan leading-tight text-balance">
-              <span className="text-myhayat-pink">{t("howItWorks.title")}</span>
-              <br />
-              <span className="italic text-gray-900 dark:text-white">{t("howItWorks.titleHighlight")}</span>
+              <BrandSparkleTitle count={13}>{t("howItWorks.title")} <br /> {t("howItWorks.titleHighlight")}</BrandSparkleTitle>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-pretty">
               {t("howItWorks.subtitle")}
@@ -89,7 +89,7 @@ export default function HowItWorksPage() {
         <section className="py-16 px-4 md:px-8 section-daylight">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-titan text-center mb-16">
-              What happens <SparklesText className="inline text-myhayat-pink" sparklesCount={4}>every time</SparklesText> you send a message
+              <BrandSparkleTitle count={9}>What happens every time you send a message</BrandSparkleTitle>
             </h2>
 
             <div className="space-y-6">
@@ -224,11 +224,9 @@ export default function HowItWorksPage() {
               <p className="text-lg text-white/80 max-w-2xl mx-auto text-pretty">
                 The honest test of whether this works is whether a Lebanese person can open it, type naturally, and feel understood enough to keep going.
               </p>
-              <Link href="/chat">
-                <MyHayatButton size="lg" className="bg-white text-myhayat-pink border-white hover:bg-gray-50">
-                  Try the demo <ArrowRight className="w-5 h-5 ms-2 inline" />
-                </MyHayatButton>
-              </Link>
+              <BrandLinkButton href="/chat" variant="outline" className="w-full sm:w-auto">
+                Try the demo <ArrowRight className="w-5 h-5" />
+              </BrandLinkButton>
             </div>
           </div>
         </section>

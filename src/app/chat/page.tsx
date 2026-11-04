@@ -8,6 +8,8 @@ import { MyHayatButton } from "@/components/ui/MyHayatButton";
 import { useTranslation } from "@/lib/i18n";
 import { Send, RotateCcw, MessageCircle, AlertTriangle } from "lucide-react";
 import Link from "next/link";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
 import { PrototypeNotice } from "@/components/ui/PrototypeNotice";
 
 function ChatBubble({ role, text }: { role: "user" | "assistant"; text: string }) {
@@ -80,8 +82,7 @@ export default function ChatPage() {
 
           <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
             <h1 className="text-5xl md:text-7xl font-titan leading-tight">
-              {t("chatDemo.title")}{" "}
-              <span className="text-myhayat-pink">{t("chatDemo.titleHighlight")}</span>
+              <BrandSparkleTitle count={11}>{t("chatDemo.title")}{" "}{t("chatDemo.titleHighlight")}</BrandSparkleTitle>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               A private, culturally aware space to explore your feelings and find grounding.
@@ -197,9 +198,7 @@ export default function ChatPage() {
         {/* CTA */}
         <section className="pt-8 pb-4 md:pt-12 md:pb-8 px-4 md:px-8 text-center">
           <p className="text-gray-500 dark:text-gray-400 mb-4">Want more clinical tools and insights?</p>
-          <Link href="/education-hub">
-            <MyHayatButton size="lg">Explore Education Hub</MyHayatButton>
-          </Link>
+          <BrandLinkButton href="/education-hub" variant="secondary">Explore Education Hub</BrandLinkButton>
           <div className="mt-3 flex justify-center">
             <img src="/Illustrations/woman drinking coffee by the duck pond.svg" alt="Peaceful reflection" className="w-[clamp(19rem,68vw,39rem)] max-w-[96vw] h-auto opacity-90" />
           </div>

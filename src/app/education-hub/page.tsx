@@ -6,7 +6,8 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MyHayatCard } from "@/components/ui/MyHayatCard";
-import { MyHayatButton } from "@/components/ui/MyHayatButton";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
 import { useTranslation } from "@/lib/i18n";
 import { Search, BookOpen, Brain, Heart, Shield, Users, Mic, Sparkles, ArrowRight, Filter, Clock, Tag } from "lucide-react";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
@@ -616,9 +617,7 @@ export default function EducationHub() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-titan leading-[0.9]">
-              <span className="block bg-gradient-to-r from-myhayat-pink via-myhayat-salmon to-myhayat-yellow bg-clip-text text-transparent pb-2">
-                Learn. Heal. Grow.
-              </span>
+              <BrandSparkleTitle count={11}>Learn. Heal. Grow.</BrandSparkleTitle>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -707,18 +706,16 @@ export default function EducationHub() {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1 text-center md:text-start space-y-4">
                 <h2 className="text-3xl md:text-5xl font-titan text-white leading-tight">
-                  Ready to start your journey?
+                  <BrandSparkleTitle count={9} color="yellow">Ready to start your journey?</BrandSparkleTitle>
                 </h2>
                 <p className="text-lg text-white/80 max-w-xl">
                   My Hayat combines clinical expertise with AI to offer support that understands your culture, your language, and your story.
                 </p>
               </div>
               <div className="shrink-0 flex flex-col sm:flex-row gap-4 items-center">
-                <Link href="/chat">
-                  <MyHayatButton size="lg" className="bg-white text-myhayat-pink border-white hover:bg-gray-50 text-lg px-10">
-                    Try a Free Demo
-                  </MyHayatButton>
-                </Link>
+                <BrandLinkButton href="/chat" variant="outline" className="w-full sm:w-auto text-lg px-8">
+                  Try a Free Demo
+                </BrandLinkButton>
                 <img src="/Illustrations/mom and her daughter are painting a picture.svg" alt="Mom and daughter painting" className="w-48 h-auto hidden md:block" />
               </div>
             </div>

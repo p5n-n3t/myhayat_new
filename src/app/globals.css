@@ -828,3 +828,34 @@ body {
  .hover-border-beam::after, .border-glow-card::after { animation: none !important; }
  .word-twinkle--active::after { display: none; }
 }
+
+/* Branded animated headline: words all participate in the color gradient and random
+   sparkle positions instead of limiting motion to an arbitrary word. */
+.brand-sparkle-title > span > strong {
+  font-weight: inherit;
+  background: linear-gradient(
+    112deg,
+    #F85BAA 0%,
+    #F98181 22%,
+    #FEC810 43%,
+    #b18bd8 60%,
+    #5d557e 73%,
+    #F98181 87%,
+    #F85BAA 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.16));
+  animation: myhayat-title-gradient 12s ease-in-out infinite;
+}
+@keyframes myhayat-title-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-sparkle-title > span > strong { animation: none; }
+  .brand-sparkle-title svg { animation: none !important; }
+}

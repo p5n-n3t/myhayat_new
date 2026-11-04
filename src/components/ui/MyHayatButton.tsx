@@ -2,42 +2,38 @@
 
 import React from "react";
 
+export type BrandButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+export type BrandButtonSize = "sm" | "md" | "lg";
+
 interface MyHayatButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
+  variant?: BrandButtonVariant;
+  size?: BrandButtonSize;
   children: React.ReactNode;
 }
 
+const BUTTON_BASE = "relative inline-flex items-center justify-center font-titan tracking-wide border-[3px] transition-[transform,box-shadow,background-color] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-myhayat-yellow disabled:pointer-events-none disabled:opacity-50 rounded-full";
+
+const BUTTON_VARIANTS: Record<BrandButtonVariant,string> = {
+  primary: "bg-myhayat-pink text-[#211723] border-myhayat-yellow shadow-[4px_5px_0_#F98181] hover:shadow-[5px_6px_0_#FEC810]",
+  secondary: "bg-myhayat-yellow text-[#211723] border-myhayat-salmon shadow-[4px_5px_0_#F85BAA] hover:shadow-[5px_6px_0_#F98181]",
+  outline: "bg-[#292c3a] text-myhayat-yellow border-myhayat-salmon shadow-[4px_5px_0_#F85BAA] hover:bg-[#382438]",
+  ghost: "bg-[#211723] text-myhayat-salmon border-myhayat-pink shadow-[3px_4px_0_#FEC810] hover:bg-[#292c3a]",
+};
+const BUTTON_SIZES: Record<BrandButtonSize,string> = {
+  sm: "min-h-9 px-4 text-sm",
+  md: "min-h-11 px-6 text-base",
+  lg: "min-h-14 px-6 sm:px-8 text-base sm:text-lg",
+};
+
+export function brandButtonClasses(variant: BrandButtonVariant = "primary", size: BrandButtonSize = "md", extra = "") {
+  return [BUTTON_BASE, BUTTON_VARIANTS[variant], BUTTON_SIZES[size], extra].filter(Boolean).join(" ");
+}
+
 export const MyHayatButton = React.forwardRef<HTMLButtonElement, MyHayatButtonProps>(
-  ({ className, variant = "primary", size = "md", children, ...props }, ref) => {
-    
-    const baseStyles = "relative inline-flex items-center justify-center font-titan tracking-wider transition-all duration-200 ease-out border-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 overflow-hidden hover-shimmer";
-    
-    const variants = {
-      primary: "bg-myhayat-pink border-black dark:border-white text-black dark:text-white",
-      secondary: "bg-myhayat-yellow border-black dark:border-white text-black dark:text-white",
-      outline: "bg-transparent border-myhayat-pink text-myhayat-pink hover:bg-myhayat-pink/10",
-      ghost: "border-transparent shadow-none hover:bg-myhayat-pink/20 text-myhayat-pink hover:translate-x-0 hover:translate-y-0",
-    };
-
-    const sizes = {
-      sm: "h-9 px-4 text-sm rounded-full",
-      md: "h-11 px-6 text-base rounded-full",
-      lg: "h-14 px-8 text-lg rounded-full",
-    };
-
-    return (
-      <button
-        ref={ref}
-        className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className || ""}`}
-        {...props}
-      >
-        <span className="relative z-10 flex items-center gap-2 filter drop-shadow-sm">
-           {children}
-        </span>
-      </button>
-    );
-  }
+  ({ className, variant = "primary", size = "md", children, ...props }, ref) => (
+    <button ref={ref} className={brandButtonClasses(variant, size, className)} {...props}>
+      <span className="inline-flex items-center justify-center gap-2">{children}</span>
+    </button>
+  )
 );
-
 MyHayatButton.displayName = "MyHayatButton";

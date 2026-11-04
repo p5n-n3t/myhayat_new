@@ -7,6 +7,7 @@ import { ClientBackground } from "@/components/layout/ClientBackground";
 import { cn } from "@/lib/utils";
 import { ContactModal } from "@/components/ui/ContactModal";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { WaitlistModal } from "@/components/ui/WaitlistModal";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_TITLE,
@@ -123,6 +124,7 @@ export default function RootLayout({
             {children}
             <ContactModal />
             <CookieConsent />
+            <WaitlistModal />
           </div>
         </Providers>
         <Script

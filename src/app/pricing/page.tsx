@@ -10,7 +10,9 @@ import { useTranslation } from "@/lib/i18n";
 import { Check, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
-import { SparklesText } from "@/components/ui/sparkles-text";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import { faqJsonLd } from "@/lib/seo";
 
 function FAQ({ question, answer }: { question: string; answer: string }) {
@@ -41,6 +43,7 @@ export default function PricingPage() {
       desc: t("pricing.free.desc"),
       features: [t("pricing.free.f1"), t("pricing.free.f2"), t("pricing.free.f3"), t("pricing.free.f4"), t("pricing.free.f5")],
       cta: t("pricing.free.cta"),
+      href: "/chat",
       borderColor: "border-myhayat-salmon",
       shadow: "shadow-[var(--shadow-curved)]",
       popular: false,
@@ -52,6 +55,7 @@ export default function PricingPage() {
       desc: t("pricing.premium.desc"),
       features: [t("pricing.premium.f1"), t("pricing.premium.f2"), t("pricing.premium.f3"), t("pricing.premium.f4"), t("pricing.premium.f5"), t("pricing.premium.f6")],
       cta: t("pricing.premium.cta"),
+      href: "#waitlist-modal",
       borderColor: "border-myhayat-pink",
       shadow: "shadow-[var(--shadow-curved-pink)]",
       popular: true,
@@ -63,6 +67,7 @@ export default function PricingPage() {
       desc: t("pricing.plus.desc"),
       features: [t("pricing.plus.f1"), t("pricing.plus.f2"), t("pricing.plus.f3"), t("pricing.plus.f4"), t("pricing.plus.f5"), t("pricing.plus.f6")],
       cta: t("pricing.plus.cta"),
+      href: "#waitlist-modal",
       borderColor: "border-myhayat-yellow",
       shadow: "shadow-[var(--shadow-curved-yellow)]",
       popular: false,
@@ -99,12 +104,7 @@ export default function PricingPage() {
               {t("pricing.launching")} 🚀
             </div>
             <h1 className="text-5xl md:text-7xl font-titan leading-tight">
-              <AnimatedGradientText className="!bg-transparent !p-0 inline">
-                <span className="inline animate-gradient bg-gradient-to-r from-[#F85BAA] via-[#FEC810] to-[#F85BAA] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
-                  {t("pricing.title")}
-                </span>
-              </AnimatedGradientText>{" "}
-              <SparklesText className="inline text-myhayat-pink" sparklesCount={4}>{t("pricing.titleHighlight")}</SparklesText>
+              <BrandSparkleTitle count={14}>{t("pricing.title")}{" "}{t("pricing.titleHighlight")}</BrandSparkleTitle>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               {t("pricing.subtitle")}
@@ -136,17 +136,14 @@ export default function PricingPage() {
                   <ul className="space-y-3 mb-8 flex-grow">
                     {plan.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-myhayat-teal shrink-0 mt-0.5" />
+                        <BrandIcon kind="sparkle" size={20} className="shrink-0 mt-0.5" />
                         <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <MyHayatButton
-                    variant={plan.popular ? "primary" : "secondary"}
-                    className="w-full"
-                  >
+                  <BrandLinkButton href={plan.href} variant={plan.popular ? "primary" : "secondary"} className="w-full">
                     {plan.cta}
-                  </MyHayatButton>
+                  </BrandLinkButton>
                 </MyHayatCard>
               </div>
             ))}

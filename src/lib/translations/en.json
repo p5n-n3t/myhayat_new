@@ -211,5 +211,11 @@
   "prototype.badge": "EXPERIMENTAL · PRE-BETA · WORK IN PROGRESS.",
   "prototype.disclaimerFull": "My Hayat is an unfinished AI prototype, not medical care, medical advice, diagnosis, treatment, therapy, or an emergency or crisis service. Do not rely on its replies for health decisions. For urgent help, contact a qualified professional or local emergency services.",
   "prototype.disclaimerChat": "This chat is not medical advice, therapy, diagnosis, treatment, or emergency support. For urgent help, contact a qualified professional or emergency services.",
-  "prototype.disclaimerFooter": "My Hayat is an unfinished AI prototype, not medical care or an emergency service. Do not use it for diagnosis, treatment, or crisis support."
+  "prototype.disclaimerFooter": "My Hayat is an unfinished AI prototype, not medical care or an emergency service. Do not use it for diagnosis, treatment, or crisis support.",
+  "waitlist.modal.title": "Join the early-access list",
+  "waitlist.modal.desc": "My Hayat is an unfinished pre-beta prototype. Add your email for launch updates — no paid plan is active yet.",
+  "waitlist.modal.label": "Your email address",
+  "waitlist.modal.close": "Close waitlist",
+  "waitlist.modal.sending": "Joining…",
+  "waitlist.modal.error": "That didn't go through. Please try again."
 }

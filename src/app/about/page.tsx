@@ -10,7 +10,9 @@ import { Shield, Heart, BookOpen, Clock, Brain, Users, Sparkles, ArrowRight, Dat
 import Image from "next/image";
 import Link from "next/link";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
-import { SparklesText } from "@/components/ui/sparkles-text";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -33,28 +35,28 @@ export default function AboutPage() {
 
   const differentiators = [
     {
-      icon: <Database className="w-8 h-8" />,
+      icon: <BrandIcon kind="bloom" size={52} />,
       title: "Trained on Real Clinical Data",
       desc: "Our model is trained on a large-scale dataset of anonymized therapy sessions from Lebanese clinics — not internet-scraped conversational data. This means the AI understands clinical dynamics and therapeutic techniques.",
       color: "text-myhayat-pink",
       accent: "from-myhayat-pink to-purple-500",
     },
     {
-      icon: <Shield className="w-8 h-8" />,
+      icon: <BrandIcon kind="heart" size={52} />,
       title: "Minimized Exposure Model",
       desc: "Unlike chatbots that optimize for engagement, My Hayat uses an information-gathering approach. It asks questions rather than giving advice, and redirects to professionals when appropriate.",
       color: "text-emerald-500",
       accent: "from-emerald-500 to-teal-400",
     },
     {
-      icon: <Lock className="w-8 h-8" />,
+      icon: <BrandIcon kind="eye" size={52} />,
       title: "Purpose-Built Safety",
       desc: "General-purpose AI produces harmful responses at significantly higher rates than purpose-built models. Our clinical training data creates a safer baseline that guardrails then improve further.",
       color: "text-myhayat-yellow",
       accent: "from-myhayat-yellow to-amber-400",
     },
     {
-      icon: <Stethoscope className="w-8 h-8" />,
+      icon: <BrandIcon kind="flower" size={52} />,
       title: "Lebanese Cultural Intelligence",
       desc: "Trained to understand Lebanese Arabic dialect, cultural taboos around mental health, family dynamics, the economic crisis context, and diaspora guilt patterns.",
       color: "text-myhayat-salmon",
@@ -82,8 +84,7 @@ export default function AboutPage() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-titan leading-tight">
-              {t("about.hero.title")}{" "}
-              <SparklesText className="inline" sparklesCount={5}>{t("about.hero.titleHighlight")}</SparklesText>
+              <BrandSparkleTitle count={15}>{t("about.hero.title")}{" "}{t("about.hero.titleHighlight")}</BrandSparkleTitle>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               My Hayat is the first AI mental health companion built specifically for the Lebanese community — trained on real anonymized clinical therapy data, not internet conversations.
@@ -96,7 +97,7 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-titan mb-4">
-                Different By <span className="text-myhayat-pink">Design</span>
+                <BrandSparkleTitle count={8}>Different By Design</BrandSparkleTitle>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Most AI chatbots are built on generic internet data. We took a fundamentally different approach.
@@ -111,8 +112,8 @@ export default function AboutPage() {
                   <div className={`w-16 h-16 rounded-2xl border-2 border-current flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform`}>
                     {item.icon}
                   </div>
-                  <h3 className="font-titan text-2xl mb-3">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-titan text-2xl mb-3 text-balance">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-[1.8] max-w-prose">{item.desc}</p>
                 </MyHayatCard>
               ))}
             </div>
@@ -163,7 +164,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-myhayat-pink/20 to-myhayat-yellow/20 flex items-center justify-center mx-auto mb-3">
                     <span className="text-2xl">💛</span>
                   </div>
-                  <h3 className="font-titan text-xl text-myhayat-pink">My Hayat</h3>
+                  <h3 className="font-titan text-xl"><BrandSparkleTitle count={4}>My Hayat</BrandSparkleTitle></h3>
                   <p className="text-sm text-gray-400">Purpose-built for mental health</p>
                 </div>
                 <ul className="space-y-3 text-sm text-gray-300">
@@ -256,25 +257,16 @@ export default function AboutPage() {
             
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1 text-center md:text-start space-y-4">
-                <h2 className="text-3xl md:text-5xl font-titan text-white leading-tight">
-                  Explore Our Research
+                <h2 className="text-3xl md:text-5xl font-titan leading-tight">
+                  <BrandSparkleTitle count={7} color="yellow">Explore Our Research</BrandSparkleTitle>
                 </h2>
-                <p className="text-lg text-white/80 max-w-xl">
+                <p className="text-lg text-white/90 max-w-xl">
                   Read our clinical research, community stories, and practical guides in the Education Hub.
                 </p>
               </div>
-              <div className="shrink-0 flex flex-col sm:flex-row gap-4">
-                <Link href="/education-hub">
-                  <MyHayatButton size="lg" className="bg-white text-myhayat-pink border-white hover:bg-gray-50">
-                    Education Hub <ArrowRight className="w-5 h-5 ml-2 inline" />
-                  </MyHayatButton>
-                </Link>
-                <Link href="/chat">
-                  <MyHayatButton size="lg" variant="secondary" className="bg-transparent text-white border-white hover:bg-white/10">
-                    Try Demo
-                  </MyHayatButton>
-                </Link>
-              </div>
+              <BrandLinkButton href="/education-hub" variant="outline" className="shrink-0 w-full md:w-auto">
+                Education Hub <ArrowRight className="w-5 h-5" />
+              </BrandLinkButton>
             </div>
           </div>
         </section>

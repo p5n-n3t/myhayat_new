@@ -14,6 +14,9 @@ import { Iphone } from "@/components/ui/iphone";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { HyperText } from "@/components/ui/hyper-text";
 import { WordTwinkle } from "@/components/ui/WordTwinkle";
+import { BrandSparkleTitle } from "@/components/ui/BrandSparkleTitle";
+import { BrandLinkButton } from "@/components/ui/BrandLinkButton";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
 
 export default function Home() {
@@ -25,11 +28,12 @@ export default function Home() {
     e.preventDefault();
     if (!waitlistEmail) return;
     try {
-      await fetch("/api/waitlist", {
+      const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: waitlistEmail }),
       });
+      if (!response.ok) throw new Error("Waitlist signup failed");
       setWaitlistSubmitted(true);
       setWaitlistEmail("");
     } catch { /* noop for MVP */ }
@@ -59,17 +63,12 @@ export default function Home() {
                      <span className="text-sm md:text-base font-bold text-gray-800 dark:text-gray-200 tracking-widest uppercase">{t("hero.badge")}</span>
                 </div>
 
-                {/* Headline */}
-                <h1 className="text-[clamp(1.95rem,8.2vw,3.35rem)] sm:text-5xl lg:text-6xl xl:text-7xl font-titan leading-[1.02] relative z-20">
-                  <span className="text-myhayat-pink">
-                    {t("hero.title1")}
-                  </span>
+                {/* Sparkles and morphing typography apply to the full heading. */}
+                <h1 className="text-[clamp(2.05rem,8.6vw,3.55rem)] sm:text-5xl lg:text-6xl xl:text-7xl font-titan leading-[1.07] relative z-20 text-balance">
+                  <BrandSparkleTitle color="pink" count={6}>{t("hero.title1")}</BrandSparkleTitle>
                   <br />
-                  <span className="text-gray-900 dark:text-white italic">
-                    {t("hero.title2")}
-                  </span>
-                    {/* Decor: Melting smiley — playfulness */}
-                    <img src="/decor_melting_smiley.svg" alt="" className="hidden md:block absolute -right-12 -top-12 w-24 h-24 animate-float -z-10" />
+                  <BrandSparkleTitle color="salmon" count={9}>{t("hero.title2")}</BrandSparkleTitle>
+                  <img src="/decor_melting_smiley.svg" alt="" className="hidden lg:block absolute -right-12 -top-12 w-24 h-24 animate-float -z-10" />
                 </h1>
 
                 {/* Subheadline */}
@@ -81,18 +80,9 @@ export default function Home() {
                     <img src="/decor_heart.svg" alt="" className="absolute -bottom-8 end-0 w-8 h-8 animate-sequence hidden md:block" />
                 </div>
 
-                {/* CTAs */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-4 pt-1 lg:flex lg:justify-start lg:pt-2">
-                     <Link href="/chat">
-                       <MyHayatButton size="lg" className="w-full !px-2 !text-[0.8rem] sm:!px-6 sm:!text-base lg:w-auto lg:!text-lg">
-                           {t("hero.cta1")}
-                       </MyHayatButton>
-                     </Link>
-                     <Link href="/how-it-works">
-                       <MyHayatButton variant="secondary" size="lg" className="w-full !px-2 !text-[0.8rem] sm:!px-6 sm:!text-base lg:w-auto lg:!text-lg">
-                           {t("hero.cta2")}
-                       </MyHayatButton>
-                     </Link>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-2 lg:flex lg:justify-start">
+                  <BrandLinkButton href="/chat" variant="primary" className="w-full lg:w-auto text-sm sm:text-base">{t("hero.cta1")}</BrandLinkButton>
+                  <BrandLinkButton href="/how-it-works" variant="secondary" className="w-full lg:w-auto text-sm sm:text-base">{t("hero.cta2")}</BrandLinkButton>
                 </div>
 
                 {/* Decorative: Shooting star — cross-hero diagonal, 2-o'clock to 8-o'clock */}
@@ -103,7 +93,7 @@ export default function Home() {
             <div className="relative w-full flex justify-center lg:justify-end pt-1 lg:pt-0">
                  {/* Blob background */}
 
-                 <div className="relative z-10 w-[clamp(15rem,65vw,19rem)] sm:w-[clamp(15rem,40vw,22rem)] lg:w-full lg:max-w-[430px]">
+                 <div className="relative z-10 w-[min(100%,26rem)] sm:w-[min(78vw,29rem)] lg:w-full lg:max-w-[35rem] -translate-x-[9%] lg:translate-x-0">
                       <Image
                         src="/myhayat_hero.png"
                         alt="My Hayat Hero Illustration"
@@ -112,6 +102,8 @@ export default function Home() {
                         className="w-full h-auto object-contain drop-shadow-2xl"
                         priority
                       />
+                      <img src="/myhayat_hero_traces.svg" alt="" aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 w-full h-full object-contain" />
                  </div>
 
             </div>
@@ -133,7 +125,7 @@ export default function Home() {
                  {/* Card 1: Zero Judgment */}
                  <MyHayatCard noPattern className="p-8 bg-white dark:bg-[#251320] group transition-shadow h-full">
                      <div className="w-16 h-16 rounded-full bg-myhayat-pink/10 dark:bg-myhayat-pink/20 border-2 border-myhayat-salmon flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                          <span className="text-3xl">❤️</span>
+                          <BrandIcon kind="heart" size={52} />
                      </div>
                      <h3 className="font-titan text-3xl mb-3">{t("features.zeroJudgment.title")}</h3>
                      <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
@@ -144,7 +136,7 @@ export default function Home() {
                  {/* Card 2: Lebanese Dialect */}
                  <MyHayatCard noPattern className="p-8 bg-white dark:bg-[#251320] group transition-shadow h-full border-myhayat-pink shadow-[var(--shadow-curved-pink)]">
                      <div className="w-16 h-16 rounded-full bg-myhayat-yellow/10 dark:bg-myhayat-yellow/20 border-2 border-myhayat-pink flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                          <span className="text-3xl">🇱🇧</span>
+                          <BrandIcon kind="bloom" size={52} />
                      </div>
                      <h3 className="font-titan text-3xl mb-3">{t("features.dialect.title")}</h3>
                      <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
@@ -308,12 +300,12 @@ export default function Home() {
              </div>
 
              <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-                 <div className="inline-block px-6 py-2 bg-white rounded-full text-myhayat-pink font-bold border-2 border-myhayat-salmon transform -rotate-2">
+                 <div className="inline-block px-6 py-2 bg-[#292c3a] rounded-full text-myhayat-yellow font-bold border-[3px] border-myhayat-salmon shadow-[4px_5px_0_#FEC810] transform -rotate-2">
                      {t("cta.badge")}
                  </div>
 
                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-titan text-white leading-tight drop-shadow-md">
-                     {t("cta.title1")} <br/> {t("cta.title2")}
+                     <BrandSparkleTitle count={10} color="yellow">{t("cta.title1")} <br/> {t("cta.title2")}</BrandSparkleTitle>
                  </h2>
 
                  <p className="text-xl md:text-2xl text-white/90 font-medium max-w-2xl mx-auto">
@@ -322,7 +314,7 @@ export default function Home() {
 
                  {/* Waitlist Form */}
                  {waitlistSubmitted ? (
-                   <div className="inline-block px-8 py-4 bg-white rounded-full text-myhayat-pink font-titan text-2xl border-4 border-myhayat-salmon shadow-lg animate-float">
+                   <div className="inline-block px-8 py-4 bg-[#292c3a] rounded-full text-myhayat-yellow font-titan text-xl border-4 border-myhayat-salmon shadow-[4px_5px_0_#FEC810]">
                      {t("waitlist.success")}
                    </div>
                  ) : (
@@ -332,10 +324,10 @@ export default function Home() {
                        value={waitlistEmail}
                        onChange={(e) => setWaitlistEmail(e.target.value)}
                        placeholder={t("waitlist.placeholder")}
-                       className="flex-1 h-16 px-8 rounded-full border-4 border-white bg-white/20 backdrop-blur-sm text-white placeholder:text-white/60 text-lg focus:outline-none focus:bg-white/30 transition-colors w-full"
+                       className="flex-1 h-16 px-8 rounded-full border-[3px] border-myhayat-yellow bg-[#292c3a] text-white placeholder:text-white/60 text-lg focus:outline-none focus:border-white transition-colors w-full"
                        required
                      />
-                     <MyHayatButton size="lg" className="bg-myhayat-yellow text-gray-900 border-white hover:scale-105 whitespace-nowrap">
+                     <MyHayatButton size="lg" variant="secondary" className="!border-[#292c3a] whitespace-nowrap">
                          {t("waitlist.button")}
                      </MyHayatButton>
                    </form>
@@ -344,7 +336,8 @@ export default function Home() {
              </div>
 
              {/* Decor Elements */}
-             <img src="/decor_melting_smiley.svg" alt="" className="absolute bottom-10 start-10 w-24 h-24 animate-float hidden md:block opacity-40" />
+             <img src="/decor_wireframes_flower_1.svg" alt="" className="absolute top-10 -left-10 w-32 h-32 opacity-10 pointer-events-none" />
+              <img src="/decor_melting_smiley.svg" alt="" className="absolute bottom-10 start-10 w-24 h-24 animate-float hidden md:block opacity-40" />
              <img src="/decor_shooting_star.svg" alt="" className="absolute top-10 end-10 w-24 h-auto shooting-star hidden md:block" style={{ animationDelay: '-5s' }} />
           </section>
         </div>
