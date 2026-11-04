@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { MyHayatButton } from "./MyHayatButton";
 import { ShieldAlert } from "lucide-react";
+import { PrototypeNotice } from "@/components/ui/PrototypeNotice";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
 
 export function CookieConsent() {
@@ -47,6 +48,7 @@ export function CookieConsent() {
             In compliance with GDPR and international data protection standards, you can choose to accept or decline non-essential tracking. 
             By clicking "Accept All", you consent to our use of cookies.
           </p>
+          <PrototypeNotice variant="modal" />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto z-10">

@@ -8,6 +8,7 @@ import { MyHayatButton } from "@/components/ui/MyHayatButton";
 import { useTranslation } from "@/lib/i18n";
 import { Send, RotateCcw, MessageCircle, AlertTriangle } from "lucide-react";
 import Link from "next/link";
+import { PrototypeNotice } from "@/components/ui/PrototypeNotice";
 
 function ChatBubble({ role, text }: { role: "user" | "assistant"; text: string }) {
   const isBot = role === "assistant";
@@ -94,6 +95,7 @@ export default function ChatPage() {
         {/* Chat Interface */}
         <section className="py-8 px-4 md:px-8">
           <div className="max-w-2xl mx-auto">
+            <div className="mb-3"><PrototypeNotice variant="chat" /></div>
             {/* Chat Window */}
             <div className="rounded-[2rem] border-4 border-myhayat-salmon dark:border-myhayat-pink/50 bg-gradient-to-b from-myhayat-offwhite to-white dark:from-[#1a0a14] dark:to-[#251320] shadow-[var(--shadow-curved)] overflow-hidden flex flex-col h-[600px] border-glow-card">
 

@@ -207,5 +207,9 @@
   "nav.educationHub": "Education Hub",
   "faq.title": "Questions worth asking,",
   "faq.titleHighlight": "answered with care",
-  "faq.subtitle": "Straight answers about language, safety, privacy, and what My Hayat can — and cannot — do."
+  "faq.subtitle": "Straight answers about language, safety, privacy, and what My Hayat can — and cannot — do.",
+  "prototype.badge": "EXPERIMENTAL · PRE-BETA · WORK IN PROGRESS.",
+  "prototype.disclaimerFull": "My Hayat is an unfinished AI prototype, not medical care, medical advice, diagnosis, treatment, therapy, or an emergency or crisis service. Do not rely on its replies for health decisions. For urgent help, contact a qualified professional or local emergency services.",
+  "prototype.disclaimerChat": "This chat is not medical advice, therapy, diagnosis, treatment, or emergency support. For urgent help, contact a qualified professional or emergency services.",
+  "prototype.disclaimerFooter": "My Hayat is an unfinished AI prototype, not medical care or an emergency service. Do not use it for diagnosis, treatment, or crisis support."
 }

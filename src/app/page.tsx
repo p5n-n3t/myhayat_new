@@ -103,7 +103,7 @@ export default function Home() {
             <div className="relative w-full flex justify-center lg:justify-end pt-1 lg:pt-0">
                  {/* Blob background */}
 
-                 <div className="relative z-10 w-[clamp(8rem,43vw,12.5rem)] sm:w-[clamp(12rem,32vw,18rem)] lg:w-full lg:max-w-[390px]">
+                 <div className="relative z-10 w-[clamp(15rem,65vw,19rem)] sm:w-[clamp(15rem,40vw,22rem)] lg:w-full lg:max-w-[430px]">
                       <Image
                         src="/myhayat_hero.png"
                         alt="My Hayat Hero Illustration"
@@ -120,9 +120,9 @@ export default function Home() {
 
         {/* Cloud transition between hero and features */}
         {/* Cloud traversal layer between hero and content */}
-        <div className="relative h-8 md:h-14 overflow-hidden pointer-events-none mt-0 z-10">
-          <img src="/decor_cloud_1.svg" alt="" className="absolute top-0 h-20 w-auto opacity-15 dark:opacity-8 cloud-cross-slow" style={{ animationDelay: '0s' }} />
-          <img src="/decor_cloud_2.svg" alt="" className="absolute top-4 h-14 w-auto opacity-10 dark:opacity-6 cloud-cross-mid-rtl" style={{ animationDelay: '-28s' }} />
+        <div className="relative z-30 h-24 sm:h-28 pointer-events-none mt-0 opacity-30 dark:opacity-25">
+          <img src="/decor_cloud_1.svg" alt="" className="absolute top-1 h-20 w-auto cloud-cross-slow" style={{ animationDelay: '0s' }} />
+          <img src="/decor_cloud_2.svg" alt="" className="absolute top-7 h-14 w-auto cloud-cross-mid-rtl" style={{ animationDelay: '-28s' }} />
         </div>
 
         {/* NON-HERO SECTIONS CONTAINER */}

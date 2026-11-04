@@ -7,6 +7,7 @@ import { useTranslation } from "@/lib/i18n";
 import { SITE_NAV_ITEMS } from "@/lib/site-navigation";
 import { JapaneseCubesPattern } from "@/components/ui/JapaneseCubesPattern";
 import { MyHayatButton } from "@/components/ui/MyHayatButton";
+import { PrototypeNotice } from "@/components/ui/PrototypeNotice";
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -79,7 +80,8 @@ export const Footer = () => {
             </form>
           </div>
         </div>
-        <div className="relative z-10 mt-7 md:mt-12 pt-4 md:pt-8 border-t border-white/35 flex flex-wrap justify-between items-center gap-3 text-xs md:text-sm text-white/90 font-medium">
+        <div className="relative z-10 mt-7 md:mt-9"><PrototypeNotice variant="footer" /></div>
+        <div className="relative z-10 mt-5 md:mt-8 pt-4 md:pt-8 border-t border-white/35 flex flex-wrap justify-between items-center gap-3 text-xs md:text-sm text-white/90 font-medium">
           <p>© {new Date().getFullYear()} {t("footer.copyright")}</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:underline">{t("footer.privacy")}</Link>
