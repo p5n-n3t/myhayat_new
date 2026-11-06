@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 
     // Notify admin
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
+      from: "My Hayat <hayat@myhayat.tech>",
       to: "joemaari@gmail.com",
       subject: `[My Hayat] New Newsletter Subscriber #${subscribers.length}`,
       html: `
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
     // Send welcome to subscriber
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
+      from: "My Hayat <hayat@myhayat.tech>",
       to: email,
       subject: "Welcome to the My Hayat Newsletter 🌸",
       html: `

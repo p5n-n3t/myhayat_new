@@ -130,7 +130,7 @@ export default function RootLayout({
         <Script
           src="https://numbers.trumpstein.me/tracker.js"
           data-website-id="cmrhp5kpu000dlftpai7v0hzd"
-          data-domains="myhayat.app,www.myhayat.app"
+          data-domains="myhayat.tech,www.myhayat.tech"
           strategy="afterInteractive"
         />
       </body>

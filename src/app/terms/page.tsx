@@ -21,12 +21,12 @@ export default function TermsPage() {
           <p className="text-sm text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
           
           <p>
-            Welcome to My Hayat. These terms and conditions outline the rules and regulations for the use of My Hayat's Website, located at myhayat.app.
+            Welcome to My Hayat. These terms and conditions outline the rules and regulations for the use of My Hayat's Website, located at myhayat.tech.
           </p>
 
           <h2>1. Terms</h2>
           <p>
-            By accessing this Website, accessible from myhayat.app, you are agreeing to be bound by these Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable local laws.
+            By accessing this Website, accessible from myhayat.tech, you are agreeing to be bound by these Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable local laws.
           </p>
 
           <h2>2. Medical Disclaimer (CRITICAL)</h2>

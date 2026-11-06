@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://myhayat.app";
+export const SITE_URL = "https://www.myhayat.tech";
 export const SITE_NAME = "My Hayat";
 export const DEFAULT_TITLE = "My Hayat | AI Mental Health Companion for the Lebanese Community";
 export const DEFAULT_DESCRIPTION = "My Hayat is an AI mental health companion built for the Lebanese community, offering culturally aware support in Lebanese Arabic and English, 24/7.";

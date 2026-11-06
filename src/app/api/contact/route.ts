@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "My Hayat <contact@myhayat.app>",
+      from: "My Hayat <contact@myhayat.tech>",
       to: "eojiraam@gmail.com",
       subject: `[My Hayat] Contact: ${category || "General"} — ${name}`,
       html: `
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     // Send auto-reply to the user
     await resend.emails.send({
-      from: "My Hayat <contact@myhayat.app>",
+      from: "My Hayat <contact@myhayat.tech>",
       to: email,
       subject: "We received your message 💛 — My Hayat",
       html: `

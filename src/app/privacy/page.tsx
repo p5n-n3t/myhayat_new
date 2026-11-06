@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           <p className="text-sm text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
           
           <p>
-            At My Hayat, accessible from myhayat.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by My Hayat and how we use it.
+            At My Hayat, accessible from myhayat.tech, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by My Hayat and how we use it.
           </p>
 
           <h2>1. Information We Collect</h2>
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
 
           <h2>5. Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us at privacy@myhayat.app.
+            If you have any questions about this Privacy Policy, please contact us at privacy@myhayat.tech.
           </p>
         </div>
       </main>

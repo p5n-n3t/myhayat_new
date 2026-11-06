@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     // Notify admin
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
+      from: "My Hayat <hayat@myhayat.tech>",
       to: "joemaari@gmail.com",
       subject: `[My Hayat] New Waitlist Signup #${waitlist.length}`,
       html: `
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation to user
     await resend.emails.send({
-      from: "My Hayat <hayat@myhayat.app>",
+      from: "My Hayat <hayat@myhayat.tech>",
       to: email,
       subject: "You're on the list! 💛 — My Hayat",
       html: `
